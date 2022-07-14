@@ -12,6 +12,8 @@ const AdministracaoRestaurantes = () => { //arrow function
             .then(resposta => setRestaurantes(resposta.data))
     }, [])
 
+    //O axios recebe como primeiro parâmetro o endereço para onde faremos a requisição. Já o segundo argumento é //um objeto literal que será transformado em json e enviado no corpo da requisição, dessa forma:
+
     const excluir = (restauranteExcluido: IRestaurante) => {
      axios.delete(`http://localhost:8000/api/v2/restaurantes/${restauranteExcluido.id}/`)
      .then(() => {
