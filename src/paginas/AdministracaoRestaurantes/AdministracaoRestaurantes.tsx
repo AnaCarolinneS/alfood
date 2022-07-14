@@ -15,7 +15,7 @@ const AdministracaoRestaurantes = () => { //arrow function
     const excluir = (restauranteExcluido: IRestaurante) => {
      axios.delete(`http://localhost:8000/api/v2/restaurantes/${restauranteExcluido.id}/`)
      .then(() => {
-        const listaRestaurantesAtualizados = restaurantes.filter(restaurante => restaurante.id !== restauranteExcluido.id) //restaurantes que tenham o id diferente do que foi excluido
+        const listaRestaurantesAtualizados = restaurantes.filter(restaurante => restaurante.id !== restauranteExcluido.id) //restaurantes que tenham o id diferente do que foi excluido!
         setRestaurantes([...listaRestaurantesAtualizados])
      })
     }
