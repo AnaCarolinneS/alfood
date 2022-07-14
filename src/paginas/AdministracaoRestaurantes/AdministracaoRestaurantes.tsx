@@ -2,20 +2,21 @@ import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, 
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import http from "../../http";
 import IRestaurante from "../../interfaces/IRestaurante";
 
 const AdministracaoRestaurantes = () => { //arrow function
     const [restaurantes, setRestaurantes] = useState<IRestaurante[]>([])
 
     useEffect(() => {
-        axios.get<IRestaurante[]>('http://localhost:8000/api/v2/restaurantes/')
+        http.get<IRestaurante[]>('restaurantes/')
             .then(resposta => setRestaurantes(resposta.data))
     }, [])
 
     //O axios recebe como primeiro parâmetro o endereço para onde faremos a requisição. Já o segundo argumento é //um objeto literal que será transformado em json e enviado no corpo da requisição, dessa forma:
 
     const excluir = (restauranteExcluido: IRestaurante) => {
-     axios.delete(`http://localhost:8000/api/v2/restaurantes/${restauranteExcluido.id}/`)
+     http.delete(`restaurantes/${restauranteExcluido.id}/`)
      .then(() => {
         const listaRestaurantesAtualizados = restaurantes.filter(restaurante => restaurante.id !== restauranteExcluido.id) //restaurantes que tenham o id diferente do que foi excluido!
         setRestaurantes([...listaRestaurantesAtualizados])
