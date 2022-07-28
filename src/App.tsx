@@ -1,9 +1,10 @@
 import { Routes, Route } from 'react-router-dom';
-import AdministracaoRestaurantes from './paginas/AdministracaoRestaurantes/AdministracaoRestaurantes';
-import FormularioRestaurante from './paginas/AdministracaoRestaurantes/FormularioRestaurante';
-import PaginaBaseAdmin from './paginas/AdministracaoRestaurantes/PaginaBaseAdmin';
+import AdministracaoRestaurantes from './paginas/Administracao/Restaurantes/AdministracaoRestaurantes';
+import FormularioRestaurante from './paginas/Administracao/Restaurantes/FormularioRestaurante';
+import PaginaBaseAdmin from './paginas/Administracao/PaginaBaseAdmin';
 import Home from './paginas/Home';
 import VitrineRestaurantes from './paginas/VitrineRestaurantes';
+import AdministracaoPratos from './paginas/Administracao/Pratos/AdministracaoPratos';
 
 function App() {
 
@@ -16,6 +17,8 @@ function App() {
       <Route path="restaurantes" element={<AdministracaoRestaurantes />} />
       <Route path="/admin/restaurantes/novo" element={<FormularioRestaurante />} />
       <Route path="/admin/restaurantes/:id" element={<FormularioRestaurante />} />
+
+      <Route path="pratos" element={<AdministracaoPratos />} />
       </Route>
     
     </Routes>
